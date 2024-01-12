@@ -1,0 +1,253 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-family: "League Spartan", sans-serif;
+}
+
+* {
+	transition: all 300ms ease-in-out;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+a {
+	text-decoration: none;
+}
+
+p {
+	line-height: 1.5;
+	font-weight: 500;
+	font-size: clamp(0.75rem, 2vw, 0.9rem);
+}
+
+.container {
+	padding: 0 1.5rem;
+}
+
+//            typography
+
+p {
+	color: hsl(0, 0%, 63%);
+}
+
+h1,
+h2,
+a {
+	color: hsl(0, 0%, 0%);
+	font-weight: bolder;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: absolute;
+	margin: 2rem 0;
+	width: 55%;
+	z-index: 100;
+
+	.logo {
+		// margin-left: 150%;
+	}
+
+	.desktop-nav {
+		display: none;
+	}
+
+	.mobile-nav {
+		display: flex;
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.6);
+		left: 0;
+		right: 0;
+		width: 100vw;
+		height: 100vh;
+		top: -100vh;
+		transition: 0.3s;
+		opacity: 0;
+		ul {
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			background-color: white;
+			height: 6rem;
+			list-style: none;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+
+			a {
+				color: black;
+				font-size: 0.9rem;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.active {
+		top: 0vw;
+		opacity: 1;
+		position: fixed;
+	}
+}
+
+.hero-section {
+	display: flex;
+	flex-direction: column;
+
+	.hero-image {
+		position: relative;
+	}
+
+	.slide-btn {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		img {
+			background-color: black;
+			padding: 1.3rem;
+			width: 0.6rem;
+			// aspect-ratio: 1/1;
+
+			&:hover {
+				background-color: hsl(0, 0%, 63%);
+			}
+		}
+	}
+
+	.slider-text {
+		padding: 3rem 2rem;
+	}
+
+	.hero-header {
+		font-size: clamp(2rem, 10vw, 2.5rem);
+	}
+
+	p {
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		text-transform: uppercase;
+		color: hsl(0, 0%, 27%);
+		font-size: 1rem;
+		font-weight: bold;
+		letter-spacing: 0.5rem;
+		padding: 2rem 0;
+		gap: 2rem;
+
+		&:active {
+			background-color: transparent;
+		}
+	}
+}
+
+.about-us {
+	display: flex;
+	flex-direction: column;
+
+	.about-text {
+		padding: 2rem;
+	}
+
+	.about-header {
+		text-transform: uppercase;
+		letter-spacing: 0.3rem;
+		font-size: 0.8rem;
+	}
+}
+
+@media screen and (min-width: 1050px) {
+	header {
+		justify-content: unset;
+		.toggle-menu-btn {
+			display: none;
+		}
+
+		.toggle-menu-close {
+			display: none;
+		}
+		.mobile-nav {
+			display: none;
+		}
+		.logo {
+			margin-left: 2rem;
+		}
+
+		.desktop-nav {
+			display: block;
+			display: flex;
+			align-items: center;
+
+			ul {
+				display: flex;
+				align-items: center;
+				justify-content: space-evenly;
+				list-style: none;
+				padding: 0 0 0 4rem;
+				margin: 0;
+				gap: 2rem;
+
+				a {
+					color: white;
+					font-size: 0.9rem;
+					font-weight: bold;
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: all 300ms ease-in-out;
+
+					&::after {
+						content: "";
+						position: absolute;
+						bottom: -15px;
+						border-radius: 10rem;
+						width: 60%;
+						height: 3px;
+						background-color: white;
+						opacity: 0;
+					}
+
+					&:hover::after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	.hero-section {
+		flex-direction: row;
+
+		.hero-image {
+			width: fit-content;
+
+			.slide-btn {
+				right: -102px;
+			}
+		}
+
+		.slider-text {
+			width: 30%;
+			margin: 2rem auto;
+		}
+	}
+
+	.about-us {
+		flex-direction: row;
+
+		.about-text {
+			margin: 2rem 2rem;
+		}
+	}
+}
